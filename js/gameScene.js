@@ -52,6 +52,7 @@ class GameScene extends Phaser.Scene {
     this.load.image("alien", "assets/alien.png")
     // sound
     this.load.audio("laser", "assets/laser1.wav")
+    this.load.audio('explosion', 'assets/barrelExploding.wav')
   }
 
   /**
@@ -71,13 +72,23 @@ class GameScene extends Phaser.Scene {
     // create a group for aliens
     this.alienGroup = this.add.group()
     this.createAlien()
+
+    // Collisions between missiles and aliens
+    this.physics.add.collider(this.missileGroup, this.alienGroup, function (missileCollide, alienCollide) {
+      alienCollide.destroy()
+      missileCollide.destroy()
+      this.sound.play('explosion')
+      this.createAlien()
+      this.createAlien()
+
+    }.bind(this))
   }
 
   /**
    * Should be overridden by your own Scenes.
    * This method is called once per game step while the scene is running
    * @param {number} time - The current time.
-   * @param {number} delta - the delta time in ms since the last frame 
+   * @param {number} delta - the delta time in ms since the last frame
    */
   update(time, delta) {
     const keyLeftObj = this.input.keyboard.addKey("LEFT")
