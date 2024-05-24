@@ -27,7 +27,8 @@ class GameScene extends Phaser.Scene {
     this.ship = null
     this.fireMissile = false
     this.score = 0
-    this.scoreText = nullthis.scoreTextStyle = { font: '65px Arial', fill: '#ffffff', align: ' center'}
+    this.scoreText = null
+    this.scoreTextStyle = { font: '65px Arial', fill: '#ffffff', align: ' center'}
   }
 
   /**
