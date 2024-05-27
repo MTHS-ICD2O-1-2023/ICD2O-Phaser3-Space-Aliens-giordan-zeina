@@ -2,7 +2,7 @@
 
 // Copyright (c) 2024 Giordan Zeina All rights reserved
 //
-// Created by: Giordan zeina
+// Created by: Giordan Zeina
 // Created on: Apr 2024
 // This is the Phaser3 configuration file
 
